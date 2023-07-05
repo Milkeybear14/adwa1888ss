@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="{% static 'icon/icon.jpg'%}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/adwa.css' %}">
+    <title>Register</title>
+</head>
+<body>
+    <div class="adwa-top-bar">
+    <a class="adwa-bar-item adwa-left" href="/"><button class="adwa-button">⬅ Leave</button></a>
+    <center><h1 class="adwa-bar-item adwa-amber">Register</h1></center>
+    </div>
+    <div class="adwa-panel adwa-bar adwa-amber adwa-text-red">
+            {% for message in messages%}
+            <h3 class="adwa-center">{{message}}</h3>
+            {% endfor %}
+        </div>
+    <form class="adwa-form adwa-panel " action="register" method="post">
+        {% csrf_token %}
+        <label for="first_name">First Name</label><input placeholder="First Name..." class="adwa-input" type="text" name="first_name" required><br>
+        <label for="last_name">Last Name</label><input placeholder="Last Name..." class="adwa-input" type="text" name="last-name" required><br>
+        <label for="username">User Name</label><input placeholder="User Name..." class="adwa-input" type="text" name="username" required><br>
+        <label for="email">Email</label><input placeholder="Email..." class="adwa-input" type="text" name="email" required><br>
+        <label for="password">Password</label><input placeholder="Password..." class="adwa-input" type="password" name="password" required><br>
+        <label for="confirm_password">Confirm Password</label><input placeholder="Confirm Password..." class="adwa-input" type="password" name="confirm_password" required><br>
+        <input class="adwa-button adwa-amber adwa-hover-shadow adwa-hover-opacity" type="submit">
+    </form>
+</body>
+</html>
